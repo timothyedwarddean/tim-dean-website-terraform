@@ -55,7 +55,7 @@ terraform apply
 
 **s3.tf**
 
-* Creates static S3 bucket of tim-dean.com. Allow force destroy so terraform can destory it on demand.
+* Creates static S3 bucket of tim-dean.com. Allow force destroy so Terraform can destory it on demand.
 * Using above S3 bucket, allow S3 to host static website pointing to index.html upon opening.
 * Opens up bucket to public with GetObject policy to allow retrieval of HTML and CSS.
 * Creates www bucket to allow DNS resolution and redirect to above S3 bucket.
