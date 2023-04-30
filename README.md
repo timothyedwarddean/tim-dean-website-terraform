@@ -53,12 +53,28 @@ terraform apply
 
 ## References
 
-**S3**
+**s3.tf**
 
 * Create static S3 bucket of tim-dean.com. Allow force destroy so terraform can destory it on demand.
 * Using above S3 bucket, allow S3 to host static website pointing to index.html upon opening.
 * Open up bucket to public with GetObject policy to allow retrieval of HTML and CSS.
 * Create www bucket to allow DNS resolution and redirect to above S3 bucket.
+
+**cloudflare.tf**
+
+* Creates CNAME entry to point to S3 website that is hosting our website.
+* Creates CNAME entry for www. access to website.
+* Forces HTTPS use in Cloudflare for SSL encryption.
+* Redirects tim-dean.com/learn to Terraform because why not?
+* Geolocation block to only allow North American IPs to restrict viewing since this is for personal, local use.
+
+**route53.tf**
+
+* Forces nameservers to use Cloudflare in repeatable fashion.
+
+**vpc.tf**
+
+* This is not technically needed but wanted some public/private CIDRs in the case I decide to attach EC2 instances to website.
 
 
 ## Contributing
