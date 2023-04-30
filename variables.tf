@@ -15,10 +15,15 @@ variable "site_domain" {
 
 variable "cloudflare_api_token" {
   description = "cloudflare api token"
-  default = "ENTER_API"
+  default     = "TOKEN-HERE"
 }
 
 variable "cloudflare_zone" {
   description = "cloudflare Zone Id"
-  default = "ENTER_ZONE"
+  default     = "ZONE-HERE"
+}
+
+variable "name_servers" {
+  type    = list(string)
+  default = [ "cory.ns.cloudflare.com", "mimi.ns.cloudflare.com" ]
 }
