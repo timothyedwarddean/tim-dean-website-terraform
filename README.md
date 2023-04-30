@@ -1,18 +1,53 @@
-# Description
+# Personal Website Through Terraform
 
 Terraform code built to run the infrastructure between CloudFlare and AWS to host personal website. The goal of this project was to be able to destory a set of infrastructure and build it back up all using IaC.
 
 ## Installation
 
-Use terraform to initialize infrastructure [terraform](https://developer.hashicorp.com/terraform/downloads).
+Use [terraform](https://developer.hashicorp.com/terraform/downloads) to initialize infrastructure.
 
 ```git
-git pull https://github.com/timothyedwarddean/tims-ai-website.git
+git pull https://github.com/timothyedwarddean/tim-dean-website-terraform.git
 ```
 
 ```terraform
 cd C:\project
 terraform init
+```
+
+Alter variables.tf to associate with your following infrastructure:
+
+* AWS Region of choice
+* Domain you will be using
+* Cloudflare API + ZoneID
+
+Alter main.tf to use AWS configuration and credentials files to authenticate into AWS. I have this pointed to a C:\Users directory on my Windows 11 machine, but adjust according to your Unix/Windows distro.
+
+The following information will need to be provided in \.aws\credentials
+
+```text
+[default]
+aws_access_key_id = ACCESS_KEY_HERE
+aws_secret_access_key = SECRET_ACCESS_KEY_HERE
+```
+
+The following information will need to be provided in \.aws\conf
+
+```text
+[default]
+region=us-east-1
+output=json
+```
+
+Upon having a working directory and proper credentials, plan your Terraform deployment.
+
+```terraform
+terraform plan
+```
+
+If content with proposed infrastructure, apply the code.
+
+```terraform
 terraform apply
 ```
 
