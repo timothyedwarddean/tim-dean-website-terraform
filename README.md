@@ -4,7 +4,7 @@ Terraform code built to run the infrastructure between CloudFlare and AWS to hos
 
 ## Installation
 
-Use [terraform](https://developer.hashicorp.com/terraform/downloads) to initialize infrastructure.
+Use [terraform](https://developer.hashicorp.com/terraform/downloads) to initialize infrastructure and pull this repository for use.
 
 ```git
 git pull https://github.com/timothyedwarddean/tim-dean-website-terraform.git
